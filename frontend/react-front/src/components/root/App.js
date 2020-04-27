@@ -1,13 +1,15 @@
 import React, {Fragment} from 'react';
 // import './App.css';
-import Nav from './components/base/Nav';
-import Routes from './components/route/Routes';
+import Nav from '../base/Nav';
+import Routes from '../route/Routes';
+import Footer from '../base/Footer';
 
 function App() {
   return (
     <Fragment>
       <Nav />
-      <p>메인화면임다</p>
+      <Routes />
+      <Footer />
     </Fragment>
   );
 }

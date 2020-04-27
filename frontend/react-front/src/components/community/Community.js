@@ -1,11 +1,14 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom';
+// import CommunityPost from './CommunityPost';
 
 
-
-let Community = () => {
+const Community = () => {
     return (
         <React.Fragment>
-            <p>커뮤니티 껍데기입니다!</p>
+            <Link path to = "/community/create">
+                <button>글쓰기</button>
+            </Link>
         </React.Fragment>
     )
 }

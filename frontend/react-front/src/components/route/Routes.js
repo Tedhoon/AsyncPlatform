@@ -14,7 +14,7 @@ export default () => (
         {/* exact paht 해줘야 뒤의 url에서만 해당된다! */}
         <Route path = "/community" component = {Community} />
         <Route path = "/accounts" component={Auth}/>
-        <Route path = "/community/create/" component={CommunityPost} />
+        <Route path = "/community_post/" component={CommunityPost} />
                 
     </Fragment>
 )

@@ -6,7 +6,7 @@ import { Route, Link } from 'react-router-dom';
 const Community = () => {
     return (
         <React.Fragment>
-            <Link path to = "/community/create">
+            <Link path to = "/community_post">
                 <button>글쓰기</button>
             </Link>
         </React.Fragment>

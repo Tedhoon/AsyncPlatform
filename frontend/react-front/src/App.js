@@ -1,12 +1,13 @@
 import React, {Fragment} from 'react';
 // import './App.css';
-import Nav from './components/base/Nav'
+import Nav from './components/base/Nav';
+import Routes from './components/route/Routes';
 
 function App() {
   return (
     <Fragment>
       <Nav />
-      메인화면임다
+      <p>메인화면임다</p>
     </Fragment>
   );
 }

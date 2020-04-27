@@ -1,17 +1,24 @@
 import React from 'react';
-import { BrowserRouter, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink, Link, Route } from 'react-router-dom';
+// import Routes from '../route/Routes';
+import Community from '../community/Community';
 
 
 const Nav = () => {
     return(
         <React.Fragment>
-            <BrowserRouter>
+            <Router>
                 <ul>
-                    <li><NavLink exact to = "/">icon</NavLink></li>
+                    <li><Link to = "/">icon</Link></li>
                     <li><NavLink exact to = "/community">community</NavLink></li>
                     <li><NavLink exact to = "/accounts">login/signup</NavLink></li>
                 </ul>
-            </BrowserRouter>
+                <div>
+                    <Route path = "/" />
+                    <Route path = "/community" component = {Community} />
+                    <Route path = "/accounts" />
+                </div>
+            </Router>
         </React.Fragment>
     )
 }

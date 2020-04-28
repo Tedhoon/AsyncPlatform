@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import api from '../root/api';
 
 const CommunityPost = () => {
-
+    const history = useHistory(); 
     const [ title, setTitle ] = useState('');
     const [ desc, setDesc ] = useState('');
 
@@ -13,12 +14,21 @@ const CommunityPost = () => {
         else{
             setDesc(e.target.value);
         }
+        // console.log(history)
     }
 
     const onSubmit = async (event) => {
         event.preventDefault();
-        await api.postCommunity({'title':title, 'desc':desc});
-
+        await api.postCommunity({'title':title, 'desc':desc})
+            .then(function(response){
+                console.log(response)
+            })
+            .catch(function(error) {
+                console.log(error);
+                alert(error);
+            })
+        history.push('/community');
+        
         }
     return (
         <div>

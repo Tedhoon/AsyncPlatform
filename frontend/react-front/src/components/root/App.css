@@ -1,8 +1,8 @@
 .section{
-    max-width: 900px;
-    min-height: 500px;
+    /* min-width: 300px;
+    min-height: 500px; */
     padding: 30px;
     margin: 0 auto;
     margin-bottom: 50px;
-    border: aqua 1px solid;
+    /* border: aqua 1px solid; */
 }

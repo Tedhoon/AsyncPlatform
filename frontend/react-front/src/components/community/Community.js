@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 // import CommunityPost from './CommunityPost';
 import api from '../root/api';
-
+import CommunityList from './CommunityList';
 function Community() {
     const [queryset, setQueryset] = useState([]);
     
@@ -10,7 +10,7 @@ function Community() {
     useEffect(function(){
         console.log("커뮤니티 마운트!")
         _getCommunity()
-    })
+    },[])
     
 
     const _getCommunity = async() => {
@@ -27,16 +27,13 @@ function Community() {
                 <button>글쓰기</button>
             </Link>
 
-                {
-                    queryset.map((com)=>
-                    <div>
-                        <p>id : {com.id}</p>
-                        <p>title : {com.title}</p>
-                        <p>desc : {com.desc}</p>
-                        <hr />
-                    </div>
-                    )
-                }
+            {
+                queryset.map((com)=>
+                <div key={com.id}>
+                    <CommunityList id={com.id} title={com.title} desc={com.desc} />
+                </div>
+                )
+            }
             
         </React.Fragment>
     )

@@ -1,0 +1,7 @@
+.com_card{
+    border: 1px solid blue;
+    width: 300px;
+    float: left;
+    margin: 10px;
+    padding: 10px;
+}

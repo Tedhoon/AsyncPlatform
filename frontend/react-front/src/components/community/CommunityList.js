@@ -1,4 +1,5 @@
 import React from 'react';
+import './CommunityList.css';
 
 function CommunityList(props){
     // useEffect(function(){
@@ -7,11 +8,10 @@ function CommunityList(props){
         
     const {id, title, desc } = props;
     return (
-        <div>
+        <div className={"com_card"}>
             <p>id : {id}</p>
             <p>title : {title}</p>
             <p>desc : {desc}</p>
-            <hr />
         </div>
     )
 }

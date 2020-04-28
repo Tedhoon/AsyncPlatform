@@ -15,8 +15,8 @@ function Community() {
 
     const _getCommunity = async() => {
         const community = await api.getCommunity();
-        console.log(community)
-        console.log(community.data)
+        // console.log(community)
+        // console.log(community.data)
         setQueryset(community.data)
     }
     
@@ -27,12 +27,13 @@ function Community() {
                 <button>글쓰기</button>
             </Link>
 
-            {
+            {queryset !== [] ? 
                 queryset.map((com)=>
                 <div key={com.id}>
                     <CommunityList id={com.id} title={com.title} desc={com.desc} />
                 </div>
                 )
+                : "loading..."
             }
             
         </React.Fragment>

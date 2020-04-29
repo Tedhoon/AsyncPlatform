@@ -37,7 +37,20 @@
 
     - [drf]
         - 크로스 도메인 요청 허용
-        - apiview활용 post api생성
+        - apiview활용 post api 생성
         - httpie test
         - api 명세서 작성
  
+ - 2020.4.29
+    - [react]
+        - detail page component, delete 구현
+        - useParams사용하여 라우팅(이렇게..하는게 맞을까..?)  
+    - [drf]
+        - apiview활용 community detail, delete api 생성
+
+    - [회고]
+        - component 구조 부터 폴더를 어떤식으로 관리하는지 좋은 예를 보고 지침을 얻어야할 필요성을 느꼈다.
+        - 그래도 일단 백지+구글링 코딩에 의의를 두고 내맘대로 완성 시켜봐도 나쁘지 않을 것 같다.
+        - apiview에서 put관련 메서드를 만들 때의 issue, drf관리자 페이지가 debug상태에 관련하여 static을 가져오지 못하는 trouble(기능에는 문제 X)
+        - react-router-dom...<<겁나 좋음>> :star:
+        

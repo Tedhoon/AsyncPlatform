@@ -16,7 +16,7 @@ const CommunityDetail = () => {
 
     useEffect(function(){
         _getCommunityDetail()
-    })
+    },[])
 
     return (
         <div>

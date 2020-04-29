@@ -16,7 +16,7 @@ export default {
     },
 
     getDetailCommnunity(data) {
-        return axios.get('/community/', data)
+        return axios.get('/community/'+data)
     }
     // deletePost(id) {
     //     return axios.delete('/posts/'+String(id))

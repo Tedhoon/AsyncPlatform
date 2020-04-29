@@ -6,24 +6,17 @@ import CommunityList from './CommunityList';
 function Community() {
     const [queryset, setQueryset] = useState([]);
     
-
     useEffect(function(){
         console.log("커뮤니티 마운트!")
         _getCommunity()
     },[])
     
-
     const _getCommunity = async() => {
         const community = await api.getCommunity();
         // console.log(community)
         // console.log(community.data)
         setQueryset(community.data)
     }
-
-    const _getDetailCommnunity = async() => {
-        const communityDetail = await api.getDetailCommnunity();
-    }
-    
       
     return (
         <React.Fragment>
@@ -34,7 +27,9 @@ function Community() {
             {queryset !== [] ? 
                 queryset.map((com)=>
                 <div key={com.id}>
-                    <CommunityList id={com.id} title={com.title} desc={com.desc} />
+                    <Link exat path to = {"community_detail/"+com.id}> 
+                        <CommunityList id={com.id} title={com.title} desc={com.desc} />
+                    </Link>
                 </div>
                 )
                 : "loading..."

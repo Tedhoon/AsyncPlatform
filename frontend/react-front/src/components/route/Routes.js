@@ -4,6 +4,8 @@ import Community from '../community/Community';
 import Home from '../home/Home';
 import Auth from '../auth/Auth';
 import CommunityPost from '../community/CommunityPost';
+import CommunityDetail from '../community/CommunityDetail';
+
 // import Nav from '../base/Nav'
 
 
@@ -15,7 +17,8 @@ export default () => (
             {/* exact paht 해줘야 뒤의 url에서만 해당된다! */}
             <Route path = "/community" component = {Community} />
             <Route path = "/accounts" component={Auth}/>
-            <Route path = "/community_post/" component={CommunityPost} />
+            <Route path = "/community_post" component={CommunityPost} />
+            <Route path = "/community_detail/:id" component={CommunityDetail} />
         </Switch>      
     </Fragment>
 )

@@ -15,6 +15,9 @@ export default {
         return axios.post('/community/',data)
     },
 
+    getDetailCommnunity(data) {
+        return axios.get('/community/', data)
+    }
     // deletePost(id) {
     //     return axios.delete('/posts/'+String(id))
     // }

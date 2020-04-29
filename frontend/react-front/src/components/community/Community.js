@@ -19,6 +19,10 @@ function Community() {
         // console.log(community.data)
         setQueryset(community.data)
     }
+
+    const _getDetailCommnunity = async() => {
+        const communityDetail = await api.getDetailCommnunity();
+    }
     
       
     return (

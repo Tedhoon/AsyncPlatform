@@ -8,7 +8,7 @@ function Community() {
     
     useEffect(function(){
         console.log("커뮤니티 마운트!")
-        _getCommunity()
+        _getCommunity();
     },[])
     
     const _getCommunity = async() => {
@@ -20,14 +20,14 @@ function Community() {
       
     return (
         <React.Fragment>
-            <Link path to = "/community_post">
+            <Link to = "/community_post">
                 <button>글쓰기</button>
             </Link>
 
             {queryset !== [] ? 
                 queryset.map((com)=>
                 <div key={com.id}>
-                    <Link exat path to = {"community_detail/"+com.id}> 
+                    <Link exact path to = {"community_detail/"+com.id}> 
                         <CommunityList id={com.id} title={com.title} desc={com.desc} />
                     </Link>
                 </div>

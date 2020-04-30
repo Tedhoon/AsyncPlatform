@@ -17,7 +17,7 @@ const CommunityDetail = () => {
 
     const _deleteCommnunity = async() => {
         await api.deleteCommunity(slug.id)
-        history.push('/community/');
+        history.push('/community');
     }
 
     useEffect(function(){

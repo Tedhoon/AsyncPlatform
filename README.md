@@ -54,3 +54,13 @@
         - apiview에서 put관련 메서드를 만들 때의 issue, drf관리자 페이지가 debug상태에 관련하여 static을 가져오지 못하는 trouble(기능에는 문제 X)
         - react-router-dom...<<겁나 좋음>> :star:
         
+- 2020.5.1
+    - [drf]
+        - User및 Register용 serializer 생성
+        - knox를 사용한 회원가입시 AuthToken 생성
+        - 디버깅디버깅디버깅...:bug:
+
+    - [회고]
+        - 오랜만에 제대로 에러를 만나서 많이 힘들었다... 관련 데이터도 없고 print만 30번은 찍어본 것 같다 욕:mute:
+        - httpie에 한계를 많이 느껴서 postman을 사용해봤는데 또 한번의 신세계를 느꼈다. 포스트맨이 있었기에 100번이 넘는 post요청을 보낼 수 있었다.. 이거 없었으면 못잤을 듯!
+        - 아! DEBUG = True는 react에서 cors요청에서만 풀어주면 되는 것 같다!

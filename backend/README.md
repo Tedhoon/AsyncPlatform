@@ -8,3 +8,7 @@
 |/community/[id]|`DELETE`|특정 id의 글을 삭제|||http DELETE http://127.0.0.1:8000/community/[id]|
 |/community/[id]|`PUT`|특정 id의 글을 부분수정||||
 |/community/[id]|`PATCH`|특정 id의 글을 수정||||
+
+
+# Auth
+knox

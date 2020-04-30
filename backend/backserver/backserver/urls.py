@@ -20,4 +20,5 @@ import Community.urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('community/', include('Community.urls')),
+    path('auth/', include('Auth.urls')),
 ]

@@ -23,7 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=lo^lfxlkj#o8yzu5et)0m7&z7!n$us(h$xpvkkx_k9hi67h24'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = False 
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -39,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'knox', # pip install django-rest-knox
+
     'Community',
+    'Auth',
 ]
 
 # react와의 api통신을 위해 설정
@@ -52,6 +56,11 @@ CORS_ALLOW_CREDENTIALS = True
 #     'domain',
 # ]
 
+
+REST_FRAMEWORK = {
+	'DEFAULT_AUTHENTICATION_CLASSED':
+    ('knox.auth.TokenAuthentication',)  # knox사용
+}
 
 
 MIDDLEWARE = [

@@ -3,3 +3,4 @@
 
 ## add List
 yarn add axios
+yarn add styled-components

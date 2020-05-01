@@ -33,3 +33,28 @@ class RegisterSerializer(serializers.ModelSerializer):
         # return user
         # except:
         #     return Response(status=status.HTTP_204_NO_CONTENT)
+
+class LoginSerializer(serializers.Serializer):
+    # validation으로만 이용할 것임!
+    username = serializers.CharField(allow_null=False, allow_blank=False)
+    password = serializers.CharField(allow_null=False, allow_blank=False)
+    # def __init__(self, data, context):
+    #     print(f"data : {data}")
+    #     print("악!")
+    
+    # def validate(self, data):
+        # # print(data['username'])
+        # user = authenticate(username=data['username'], password=data['password'])
+        # print(user)
+        # print("여기까지요")
+        # print(data)
+        # return data
+        # # if user and user.is_active():
+        # #     return user
+        # # raise serializers.ValidationError("틀륌..")
+
+    def validate(self,data):
+        user=authenticate(**data)
+        if user and user.is_active:
+            return user
+        raise serializers.ValidationError("incorect asd")

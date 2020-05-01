@@ -24,7 +24,7 @@ SECRET_KEY = '=lo^lfxlkj#o8yzu5et)0m7&z7!n$us(h$xpvkkx_k9hi67h24'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -58,8 +58,9 @@ CORS_ALLOW_CREDENTIALS = True
 
 
 REST_FRAMEWORK = {
-	'DEFAULT_AUTHENTICATION_CLASSED':
-    ('knox.auth.TokenAuthentication',)  # knox사용
+    'DEFAULT_AUTHENTICATION_CLASSES':('knox.auth.TokenAuthentication',)
+	# 'DEFAULT_AUTHENTICATION_CLASSED':
+    # ('knox.auth.TokenAuthentication',)  # knox사용
 }
 
 

@@ -67,10 +67,10 @@ class LoginAPI(generics.GenericAPIView):
 
 # user를 get해주는 api
 class UserAPI(generics.RetrieveAPIView):
-    permission_classes = [
-        permissions.IsAuthenticated,
-    ]
+    permission_classes = [ permissions.IsAuthenticated,]
     serializer_class = UserSerializer
- 
+
     def get_object(self):
         return self.request.user
+    
+    # 잘 알아두자... 인증 실패면 403이다!!! 아오!!!

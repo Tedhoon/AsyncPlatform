@@ -1,13 +1,19 @@
 import React from 'react';
-import './Footer.css';
-
+import styled from 'styled-components';
 
 const Footer = () => {
     return (
         <React.Fragment>
-            <div className={'footer'}>Footer Section</div>
+            <Foot>Footer Section</Foot>
         </React.Fragment>
     )
 }
+
+const Foot = styled.div`
+    display: inline-block;
+    width: 100vw;
+    background-color: aqua;
+    height: 100px;
+`;
 
 export default Footer;

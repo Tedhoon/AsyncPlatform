@@ -1,5 +1,5 @@
 import React from 'react';
-import './CommunityList.css';
+import styled from 'styled-components';
 
 function CommunityList(props){
     // useEffect(function(){
@@ -8,12 +8,20 @@ function CommunityList(props){
         
     const {id, title, desc } = props;
     return (
-        <div className={"com_card"}>
+        <CommunityCard>
             <p>id : {id}</p>
             <p>title : {title}</p>
             <p>desc : {desc}</p>
-        </div>
+        </CommunityCard>
     )
 }
+
+const CommunityCard = styled.div`
+    border: 1px solid blue;
+    width: 300px;
+    float: left;
+    margin: 10px;
+    padding: 10px;
+`;
 
 export default CommunityList;

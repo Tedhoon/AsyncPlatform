@@ -71,3 +71,7 @@
         - styled-components 적용하여 기존 style 컨버팅
     - [drf]
         - Login Token Authentication API
+
+- 2020.5.02
+    - [drf]
+        - knox-Token을 통한 User Permission 확인용 API생성

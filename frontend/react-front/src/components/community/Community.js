@@ -27,7 +27,7 @@ function Community() {
             {queryset !== [] ? 
                 queryset.map((com)=>
                 <div key={com.id}>
-                    <Link exact path to = {"community_detail/"+com.id}> 
+                    <Link path to = {"community_detail/"+com.id}> 
                         <CommunityList id={com.id} title={com.title} desc={com.desc} />
                     </Link>
                 </div>

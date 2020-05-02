@@ -10,9 +10,19 @@ const CommunityDetail = () => {
     const [ object, setObject ] = useState('');
 
     const _getCommunityDetail = async() => {
-        const comObject = await api.getDetailCommnunity(slug.id);
-        // 여기서 promise이용해서 404받았을 때 page not Found 띄워주면 될 것 같은데
-        setObject(comObject.data);
+        const comObject = await api.getDetailCommnunity(slug.id)
+            .then(function(response){
+                console.log(response)
+                setObject(comObject.data);
+            })
+            .catch(function(error) {
+                if (error.response.status===401){
+                    alert("인증되지 않은 유저입니다");
+                    history.push('/community');
+                }
+                else {alert("존재하지 않는 쿼리셋 404입니다")}
+                console.log(error.response);  
+            })
     }
 
     const _deleteCommnunity = async() => {

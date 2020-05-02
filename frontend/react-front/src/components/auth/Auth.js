@@ -1,10 +1,10 @@
 import React from 'react';
-
+import Login from './Login';
 
 const Auth = () => {
     return (
         <React.Fragment>
-            <p>Auth관련</p>
+            <Login />
         </React.Fragment>
     )
 }

@@ -82,3 +82,10 @@
 - 2020.5.03
     - [drf]
         - api 명세서 작성
+        - 로그인 실패시 http response 커스텀
+        - deploy를 위한 docker 학습
+    - [react]
+        - login시 유저 인증
+        - localstorage에 token 세팅
+    - [회고]
+        - promise응답에 setting을 해주니까 코드가 너무 길어져서 보기힘든 것 같다. 추후에 응답에 관한 case를 분류해서 리팩토링 필요 

@@ -25,4 +25,7 @@ export default {
     // deletePost(id) {
     //     return axios.delete('/posts/'+String(id))
     // }
+    Login(data) {
+        return axios.post('/auth/login', data)
+    }
 }

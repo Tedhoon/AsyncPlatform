@@ -55,13 +55,16 @@ class LoginAPI(generics.GenericAPIView):
     #         print("else")
     def post(self, request, *args, **kwargs):
         serializer=self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user=serializer.validated_data
-        return Response({
-            "user":UserSerializer(user,context=self.get_serializer_context()).data,
-            # "token":AuthToken.objects.create(user)
-            "token":AuthToken.objects.create(user)[1]#u need to add [1] because The Token.objects.create returns a tuple (instance, token). So in order to get token use the index 1
-        })
+        if serializer.is_valid():
+            user=serializer.validated_data
+            return Response({
+                "user":UserSerializer(user,context=self.get_serializer_context()).data,
+                # "token":AuthToken.objects.create(user)
+                "token":AuthToken.objects.create(user)[1]
+                #u need to add [1] because The Token.objects.create returns a tuple (instance, token). So in order to get token use the index 1
+            })
+        else:
+            return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
 
 
 

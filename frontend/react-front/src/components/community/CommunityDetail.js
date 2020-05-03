@@ -30,9 +30,10 @@ const CommunityDetail = () => {
         history.push('/community');
     }
 
+
     useEffect(function(){
         _getCommunityDetail()
-    },[])
+    },[]);
 
     return (
         <div>

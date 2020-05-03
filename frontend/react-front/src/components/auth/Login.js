@@ -15,19 +15,38 @@ const Login = () => {
     const [ authenticate, setAuthenticate ] = useState({
         token: localStorage.getItem('token'),
         isAuthenticated: null,
-        isLoading: false,
         user: null
         })
+
+    useEffect(function(){
+        // 디버깅용
+        console.log('useeffect!!')
+        console.log(authenticate)
+    },[authenticate])
     
     const checkAuthenticate = async() => {
         await api.Login({
             'username':username, 'password':password
         })
-        .then(res => {
-            console.log(res.data)
+        .then(async(res) => {
+            const user = await res.data
+            setAuthenticate({
+                ...authenticate,
+                token: user.token,
+                isAuthenticated: true,
+                user: user.user
+            })
+            localStorage.setItem("token", user.token);
+            
             alert("반가워요!")
         }).catch(err => {
             console.log(err)
+            localStorage.removeItem("token");
+            setAuthenticate({
+                token: null,
+                isAuthenticated: false,
+                user: null
+            })
             alert("없는 유저!")       
         });
 

@@ -1,20 +1,21 @@
 # 비동기 플랫폼 메이킹
 
 ## :zap: stack 
-> python
-- django
-- django-rest-framework
-- knox
-
-> js
+> frontend
 - react
 - create-react-app
 - hooks
 - axios
 
-### :memo: [api 명세서](https://github.com/Tedhoon/AsyncPlatform/tree/master/backend)
+> backend
+- django
+- django-rest-framework
+- knox
 
-## WID :label:
+:memo: [api 명세서](https://github.com/Tedhoon/AsyncPlatform/tree/master/backend)
+
+
+## :label: WID 
 
 - 2020.4.27
     - [react]
@@ -77,3 +78,7 @@
 - 2020.5.02
     - [drf]
         - knox-Token을 통한 User Permission 확인용 API생성
+
+- 2020.5.03
+    - [drf]
+        - api 명세서 작성

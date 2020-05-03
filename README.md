@@ -1,16 +1,18 @@
 # 비동기 플랫폼 메이킹
 
-<br>
+## :zap: stack 
+> python
+- django
+- django-rest-framework
+- knox
 
-## stack :zap:
-- python
-    - django
-    - django-rest-framework
+> js
+- react
+- create-react-app
+- hooks
+- axios
 
-- js
-    - react
-    - create-react-app
-    - hooks
+### :memo: [api 명세서](https://github.com/Tedhoon/AsyncPlatform/tree/master/backend)
 
 ## WID :label:
 

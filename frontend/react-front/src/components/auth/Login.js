@@ -51,8 +51,6 @@ const Login = () => {
         });
     }
 
-
-
     const usernameChange = (e) => {
         setUsername(e.target.value)
     }

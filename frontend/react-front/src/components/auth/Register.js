@@ -22,8 +22,21 @@ const Register = () => {
     }
         
     const onSubmit = (e) => {
-        // e.preventDefault;
-        // console.log(username, password, email)
+        e.preventDefault();
+        console.log("submit")
+        reqRegister()
+    }
+    
+    const reqRegister = async() => {
+        const register = await api.Register({
+            'username' : username,
+            'email': email,
+            'password': password
+        })
+        .then(res=>{
+            console.log(res.data)
+        })
+
     }
 
     return (

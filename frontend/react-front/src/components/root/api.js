@@ -1,16 +1,15 @@
-import axios from "axios"
+import axios from "axios";
+import Register from "../auth/Register";
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/"
 
-
-// object들을 넣을 수 있는 공간
 export default {
 
-    //모든 글 불러오기
+    // community
     getCommunity() {
         return axios.get('/community/')
     },
-    //글 작성하기
+    
     postCommunity(data) {
         return axios.post('/community/',data)
     },
@@ -22,10 +21,13 @@ export default {
     deleteCommunity(id) {
         return axios.delete('/community/'+id)
     },
-    // deletePost(id) {
-    //     return axios.delete('/posts/'+String(id))
-    // }
+    
+    // Auth 
     Login(data) {
         return axios.post('/auth/login', data)
-    }
+    },
+
+    Register(data) {
+        return axios.post('/auth/register', data)
+    },
 }

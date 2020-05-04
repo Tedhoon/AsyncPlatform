@@ -66,8 +66,7 @@ const Login = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         console.log("Submit")
-        // console.log(authenticate)
-        checkAuthenticate()
+        checkAuthenticate();
     }
 
     return (
@@ -103,7 +102,8 @@ const Submit = styled.input.attrs({
 
 const UsernameInput = styled.input.attrs({
     type: 'text',
-    placeholder: 'username'
+    placeholder: 'username',
+    required: true,
 })`
     border: 1px green solid;
 `; 
@@ -111,6 +111,7 @@ const UsernameInput = styled.input.attrs({
 const PasswordInput = styled.input.attrs({
     type: 'password',
     placeholder: 'password',
+    required: true,
 })``;
 
 export default Login;

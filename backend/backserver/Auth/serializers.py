@@ -54,7 +54,7 @@ class LoginSerializer(serializers.Serializer):
         # # raise serializers.ValidationError("틀륌..")
 
     def validate(self,data):
-        user=authenticate(**data)
+        user = authenticate(**data)
         if user and user.is_active:
             return user
         raise serializers.ValidationError("땡!")

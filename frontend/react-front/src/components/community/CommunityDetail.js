@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom'
-import api from '../root/api';
+import api from 'components/root/api';
 
 const CommunityDetail = () => {
     // useParams를 써서 params가 담긴 object를 반환 받을 수 있다.

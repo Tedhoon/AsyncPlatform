@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import Nav from '../base/Nav';
-import Routes from '../route/Routes';
-import Footer from '../base/Footer';
+import Nav from 'components/base/Nav';
+import Routes from 'components/route/Routes';
+import Footer from 'components/base/Footer';
 
 
 function App() {

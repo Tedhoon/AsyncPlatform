@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import api from '../root/api';
+import api from 'components/root/api';
 
 const CommunityPost = () => {
     const history = useHistory(); 

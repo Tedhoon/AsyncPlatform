@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Community from '../community/Community';
-import Home from '../home/Home';
-import Auth from '../auth/Auth';
-import Register from '../auth/Register';
-import CommunityPost from '../community/CommunityPost';
-import CommunityDetail from '../community/CommunityDetail';
+import Community from 'components/community/Community';
+import Home from 'components/home/Home';
+import Auth from 'components/auth/Auth';
+import Register from 'components/auth/Register';
+import CommunityPost from 'components/community/CommunityPost';
+import CommunityDetail from 'components/community/CommunityDetail';
 
 // import Nav from '../base/Nav'
 

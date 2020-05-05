@@ -1,5 +1,5 @@
-import React, {Fragment} from 'react';
-import App from './App';
+import React, { Fragment } from 'react';
+import App from 'components/root/App';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 function Root() {

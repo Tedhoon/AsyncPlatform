@@ -89,3 +89,8 @@
         - localstorage에 token 세팅
     - [회고]
         - promise응답에 setting을 해주니까 코드가 너무 길어져서 보기힘든 것 같다. 추후에 응답에 관한 case를 분류해서 리팩토링 필요 
+
+- 2020.5.5
+    - [react]
+        - auth상태관리를 위한 redux학습 및 적용중
+        - cross-env를 통한 절대경로 지정

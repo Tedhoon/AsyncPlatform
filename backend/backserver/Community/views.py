@@ -7,6 +7,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, permissions
 from django.http import Http404
+from django.contrib.auth.models import User
 
 class CommunityList(APIView):
     def get(self, request, format=None):
@@ -16,8 +17,10 @@ class CommunityList(APIView):
 
     def post(self, request, format=None):
         serializer = CommunitySerializer(data=request.data)
+        print(request.user)
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(author=User.objects.get(id=5))
+                            # author = request.user해주면 될 듯!
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

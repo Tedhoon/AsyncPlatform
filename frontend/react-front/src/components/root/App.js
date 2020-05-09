@@ -14,7 +14,9 @@ function App() {
   
   useEffect(function(){
     store.dispatch(loadUser());
-  })
+    console.log("loadUser dispatch")
+  },[])
+
   return (
     <Provider store={store}>
       <GlobalStyle />

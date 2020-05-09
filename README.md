@@ -94,3 +94,19 @@
     - [react]
         - auth상태관리를 위한 redux학습 및 적용중
         - cross-env를 통한 절대경로 지정
+
+- 2020.5.9
+    - [react]
+        - login 실패시 ref사용 이벤트 핸들링
+        - redux 관련 폴더구조 다시잡기
+        - redux store 재구현 및 dev-tool 적용
+        - privateRoute 구현
+        - auth관련 action type 생성
+        - auth관련 reducer 구현
+        - 서비스 내 global user config dispatch
+        - redux 적용하여 privateRouter에 대한 user 권한 테스팅 
+    - [drf]
+        - community post에 author연결 및 author_name serialize
+    - [회고]
+        - redux구조를 잡는게 방식이 너무 다양해서... 하나만 잡고 일단 익숙해져야 할 것 같다.
+        - 오히려 너무 component화를 많이 시키거나 요청별 구조를 나눠놓으니까 내가 헷갈리는데, 이건 권장방식을 알아보고 폴더구조도 다시 잡아야할 것 같다.

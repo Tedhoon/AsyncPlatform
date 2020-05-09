@@ -7,7 +7,6 @@ import {
     LOGOUT_SUCCESS,
     REGISTER_SUCCESS,
     REGISTER_FAIL,
-    MY_POSTS
 } from 'actions/types';
 
 
@@ -16,7 +15,6 @@ const initialState = {
     isAuthenticated: null,
     isLoading: false,
     user: null,
-    myPosts: []
 }
 
 export default function(state = initialState, action){
@@ -54,11 +52,6 @@ export default function(state = initialState, action){
                 user:null,
                 isAuthenticated: false,
                 isLoading: false,
-            }
-        case MY_POSTS:
-            return {
-                ...state,
-                myPosts: action.payload
             }
         default:
             return state

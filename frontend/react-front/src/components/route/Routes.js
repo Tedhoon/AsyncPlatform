@@ -18,7 +18,7 @@ export default () => (
             <Route path = "/community" component = {Community} />
             <Route path = "/accounts" component={Auth} />
             <Route path = "/register" component={Register} />
-            <Route path = "/community_post" component={CommunityPost} />
+            <PrivateRoute path = "/community_post" component={CommunityPost} />
             <PrivateRoute path = "/community_detail/:id" component={CommunityDetail} />
         </Switch>      
     </Fragment>

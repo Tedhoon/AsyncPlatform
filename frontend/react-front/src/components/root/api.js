@@ -1,5 +1,4 @@
 import axios from "axios";
-import Register from "../auth/Register";
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/"
 

@@ -4,17 +4,19 @@ import Nav from 'components/base/Nav';
 import Routes from 'components/route/Routes';
 import Footer from 'components/base/Footer';
 
+import store from 'store';
+import { Provider } from 'react-redux';
 
 function App() {
   return (
-    <Fragment>
+    <Provider store={store}>
       <GlobalStyle />
-        <Nav />
-        <Section>
-          <Routes />
-        </Section>
-        <Footer />
-    </Fragment>
+      <Nav />
+      <Section>
+        <Routes />
+      </Section>
+      <Footer />
+    </Provider>
   );
 }
 

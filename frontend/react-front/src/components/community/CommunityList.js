@@ -6,10 +6,11 @@ function CommunityList(props){
     //     console.log(props);
     // })
         
-    const {id, title, desc } = props;
+    const {id, author_name, title, desc} = props;
     return (
         <CommunityCard>
             <p>id : {id}</p>
+            <p>author: {author_name}</p>
             <p>title : {title}</p>
             <p>desc : {desc}</p>
         </CommunityCard>

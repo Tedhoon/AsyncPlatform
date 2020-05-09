@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Nav from 'components/base/Nav';
 import Footer from 'components/base/Footer';
 import Routes from 'components/route/Routes';
 
-
 import store from 'store';
 import { Provider } from 'react-redux';
 
+import { loadUser } from 'actions/authActions';
+
+
 function App() {
+  
+  useEffect(function(){
+    store.dispatch(loadUser());
+  })
   return (
     <Provider store={store}>
       <GlobalStyle />

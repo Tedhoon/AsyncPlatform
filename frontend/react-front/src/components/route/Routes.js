@@ -13,7 +13,7 @@ import PrivateRoute from './PrivateRoute';
 export default () => (
     <Fragment>
         <Switch>
-            <PrivateRoute exact path = "/" component={Home} />
+            <Route exact path = "/" component={Home} />
             {/* exact path 해줘야 뒤의 url에서만 해당된다! */}
             <Route path = "/community" component = {Community} />
             <Route path = "/accounts" component={Auth} />

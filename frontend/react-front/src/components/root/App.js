@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Nav from 'components/base/Nav';
 import Footer from 'components/base/Footer';

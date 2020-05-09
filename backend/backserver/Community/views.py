@@ -27,7 +27,7 @@ class CommunityList(APIView):
 
 
 class CommunityDetail(APIView):
-    permission_classes = [ permissions.AllowAny, permissions.IsAuthenticated, ]
+    permission_classes = [ permissions.IsAuthenticated, ]
     def get_object(self, pk):
         try:
             return Community.objects.get(pk=pk)
@@ -48,6 +48,7 @@ class CommunityDetail(APIView):
     #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk, format=None):
+        # author권한 줘야한다요
         community = self.get_object(pk)
         community.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

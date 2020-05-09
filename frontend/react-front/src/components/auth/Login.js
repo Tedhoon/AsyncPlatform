@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-// import { 
-//     USER_LOADING,
-//     USER_LOADING,
-//     AUTH_ERROR
-// } from './AuthStatus';
+
 import api from '../root/api';
 
 const Login = () => {
@@ -17,6 +13,9 @@ const Login = () => {
         isAuthenticated: null,
         user: null
         })
+
+    // for init
+    const userform = useRef()
 
     useEffect(function(){
         // 디버깅용
@@ -47,7 +46,12 @@ const Login = () => {
                 isAuthenticated: false,
                 user: null
             })
-            alert("없는 유저!")       
+
+            // 틀렸으니까 다시 front-init
+            setUsername('')
+            setPassword('')
+            userform.current.focus()
+            alert("없는 유저!")      
         });
     }
 
@@ -70,7 +74,7 @@ const Login = () => {
             <LoginContainer>
                 <LoginForm onSubmit={onSubmit} >
                     Username :
-                    <UsernameInput value={username} onChange={usernameChange} />
+                    <UsernameInput ref={userform} value={username} onChange={usernameChange} />
                     <br />
                     Password :
                     <PasswordInput value={password} onChange={passwordChange} />

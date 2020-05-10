@@ -18,6 +18,7 @@ const initialState = {
 }
 
 export default function(state = initialState, action){
+    console.log("authReducer실행이다아")
     switch (action.type) {
         case USER_LOADING:
             return {
@@ -42,14 +43,6 @@ export default function(state = initialState, action){
                 user: action.payload
             }
         case AUTH_ERROR:
-            localStorage.removeItem('token');
-            return {
-                ...state,
-                token: null,
-                user: null,
-                isAuthenticated: false,
-                isLoading: false
-            }
         case LOGIN_FAIL:
         case LOGOUT_SUCCESS:
         case REGISTER_FAIL:

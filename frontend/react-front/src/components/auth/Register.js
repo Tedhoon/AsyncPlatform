@@ -33,8 +33,11 @@ const Register = () => {
             'email': email,
             'password': password
         })
-        .then(res=>{
+        .then(async(res)=>{
+            const user = await res.data
             console.log(res.data)
+            localStorage.setItem("token", user.token);
+            // 여기서 setItem만 해주니까 initialState가 바뀌고... dispatch가 작동해서 USER_LOADING 실행인건가..?
         })
 
     }

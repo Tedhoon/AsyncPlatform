@@ -1,12 +1,12 @@
 import {
     USER_LOADED,
     USER_LOADING,
-    AUTH_ERROR,
-    LOGIN_SUCCESS,
-    LOGIN_FAIL,
-    LOGOUT_SUCCESS,
-    REGISTER_SUCCESS,
-    REGISTER_FAIL,
+    // AUTH_ERROR,
+    // LOGIN_SUCCESS,
+    // LOGIN_FAIL,
+    // LOGOUT_SUCCESS,
+    // REGISTER_SUCCESS,
+    // REGISTER_FAIL,
 } from './types';
 
 import axios from 'axios';
@@ -17,10 +17,13 @@ import axios from 'axios';
 // Check Token & Load User
 export const loadUser = () => (dispatch, getState) => {
     // User Loading
-    dispatch({type: USER_LOADING})
+    dispatch({
+        type: USER_LOADING
+    })
     
     axios.get('/auth/user',tokenConfig(getState))
         .then(res => {
+            console.log("loadUser 작동이다아")
             dispatch({
                 type: USER_LOADED,
                 payload: res.data
@@ -128,7 +131,7 @@ export const loadUser = () => (dispatch, getState) => {
 
 // 토큰을 확인하고 토큰이 있을 시 header에 첨부하는 로직
 export const tokenConfig = getState => {
-    // get Token From State
+    // state에서 토큰을 가져옴
     const token = getState().auth.token;
 
     // Headers
@@ -138,7 +141,7 @@ export const tokenConfig = getState => {
         }
     }
 
-    // If Token, Add To Headers Config
+    // 토큰 있으면 header에 넣어준다.
     if(token){
         config.headers['Authorization'] = `Token ${token}`;
     }

@@ -28,7 +28,7 @@ const Register = () => {
     }
     
     const reqRegister = async() => {
-        const register = await api.Register({
+        await api.Register({
             'username' : username,
             'email': email,
             'password': password

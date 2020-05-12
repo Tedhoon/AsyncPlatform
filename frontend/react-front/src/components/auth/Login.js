@@ -1,83 +1,116 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+// import api from 'components/root/api';
+import { login } from 'actions/authActions';
 
-import api from '../root/api';
+// 여기서 login을 인자로 받아와야 connect 가능한듯
+const Login = ({isAuthenticated,login}) => {
+    const history = useHistory();
+    useEffect(() => {
+        if(isAuthenticated){
+            console.log("로그인성공!")
+            history.push('/');
+        }else{
+            console.log("로그인실패!")
+        }
 
-const Login = () => {
-    const [ username, setUsername ] = useState('');
-    const [ password, setPassword ] = useState('');
+    },[isAuthenticated]);
 
-    const [ authenticate, setAuthenticate ] = useState({
-        token: localStorage.getItem('token'),
-        isAuthenticated: null,
-        user: null
-        })
+    const [ user, setUser ] = useState({
+        username: '',
+        password: ''
+    })
 
-    // for init
+    const { username, password } = user;
+
     const userform = useRef()
-
-    useEffect(function(){
-        // 디버깅용
-        console.log('useeffect!!')
-        console.log(authenticate)
-    },[authenticate])
     
-    const checkAuthenticate = async() => {
-        await api.Login({
-            'username':username, 'password':password
-        })
-        .then(async(res) => {
-            const user = await res.data
-            setAuthenticate({
-                ...authenticate,
-                token: user.token,
-                isAuthenticated: true,
-                user: user.user
-            })
-            localStorage.setItem("token", user.token);
-            
-            alert("반가워요!")
-        }).catch(err => {
-            console.log(err)
-            localStorage.removeItem("token");
-            setAuthenticate({
-                token: null,
-                isAuthenticated: false,
-                user: null
-            })
-
-            // 틀렸으니까 다시 front-init
-            setUsername('')
-            setPassword('')
-            userform.current.focus()
-            alert("없는 유저!")      
+    const onChange = (e) => {
+        e.preventDefault();
+        setUser({
+            ...user,
+            [e.target.name] : e.target.value
         });
-    }
 
-    const usernameChange = (e) => {
-        setUsername(e.target.value)
-    }
-
-    const passwordChange = (e) => {
-        setPassword(e.target.value)
-    }
+    };
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log("Submit")
-        checkAuthenticate();
-    }
+        login(username,password);
+
+    };
+
+    // const [ username, setUsername ] = useState('');
+    // const [ password, setPassword ] = useState('');
+
+    // const [ authenticate, setAuthenticate ] = useState({
+    //     token: localStorage.getItem('token'),
+    //     isAuthenticated: null,
+    //     user: null
+    //     })
+
+
+    // const checkAuthenticate = async() => {
+    //     await api.Login({
+    //         'username':username, 'password':password
+    //     })
+    //     .then(async(res) => {
+    //         const user = await res.data
+    //         setAuthenticate({
+    //             ...authenticate,
+    //             token: user.token,
+    //             isAuthenticated: true,
+    //             user: user.user
+    //         })
+    //         localStorage.setItem("token", user.token);
+            
+    //         alert("반가워요!")
+    //     }).catch(err => {
+    //         console.log(err)
+    //         localStorage.removeItem("token");
+    //         setAuthenticate({
+    //             token: null,
+    //             isAuthenticated: false,
+    //             user: null
+    //         })
+
+    //         // 틀렸으니까 다시 front-init
+    //         setUsername('')
+    //         setPassword('')
+    //         userform.current.focus()
+    //         alert("없는 유저!")      
+    //     });
+    // }
+
+    // const usernameChange = (e) => {
+    //     setUsername(e.target.value)
+    // }
+
+    // const passwordChange = (e) => {
+    //     setPassword(e.target.value)
+    // }
+
+    // const onSubmit = (e) => {
+    //     e.preventDefault();
+    //     console.log("Submit")
+    //     checkAuthenticate();
+    // }
+
+
+
 
     return (
         <div>
             <LoginContainer>
                 <LoginForm onSubmit={onSubmit} >
                     Username :
-                    <UsernameInput ref={userform} value={username} onChange={usernameChange} />
+                    <UsernameInput ref={userform} name="username" value={username} onChange={onChange} />
                     <br />
                     Password :
-                    <PasswordInput value={password} onChange={passwordChange} />
+                    <PasswordInput name="password" value={password} onChange={onChange} />
                     <Submit />
                 </LoginForm>
                 계정이 없으심까? 👉 <Link to="/register">Register</Link>
@@ -114,4 +147,15 @@ const PasswordInput = styled.input.attrs({
     required: true,
 })``;
 
-export default Login;
+
+
+Login.propTypes = {
+    isAuthenticated: PropTypes.bool,
+    login: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, {login})(Login);

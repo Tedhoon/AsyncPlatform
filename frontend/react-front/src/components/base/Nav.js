@@ -8,9 +8,10 @@ import { logout } from 'actions/authActions';
 
 const Nav = ({auth:{isAuthenticated,user}, logout}) => {
 
-    // useEffect(()=>{
-    //     console.log(isAuthenticated)
-    // },[isAuthenticated])
+    useEffect(()=>{
+        console.log(user);
+        console.log("이거!!")
+    },[user])
 
 
 

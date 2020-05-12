@@ -5,8 +5,8 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGOUT_SUCCESS,
-    // REGISTER_SUCCESS,
-    // REGISTER_FAIL,
+    REGISTER_SUCCESS,
+    REGISTER_FAIL,
 } from './types';
 
 import axios from 'axios';
@@ -68,37 +68,38 @@ export const login = (username,password) => dispatch => {
 
 
 // Register User
-// export const register = ({username,password,email}) => (dispatch) => {
-//     // Headers
-//     const config = {
-//         headers: {
-//             'Content-Type' : 'application/json'
-//         }
-//     }
+export const register = ({username, password, email}) => dispatch => {
+    // Headers
+    const config = {
+        headers: {
+            'Content-Type' : 'application/json'
+        }
+    }
 
 
     // Request Body
-//     const body = JSON.stringify({username,password,email})
+    const body = JSON.stringify({username, password, email})
 
-//     axios.post('/api/auth/register',body,config)
-//         .then(res => {
-//             dispatch({
-//                 type: REGISTER_SUCCESS,
-//                 payload: res.data
-//             })
-//         })
-//         .catch(err => {
-//             dispatch(returnErrors(err.response.data,err.response.status))
-//             dispatch({
-//                 type: REGISTER_FAIL
-//             })
-//         })
-// }
+    axios.post('/auth/register', body, config)
+        .then(res => {
+            dispatch({
+                type: REGISTER_SUCCESS,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            console.log(err)
+            // dispatch(returnErrors(err.response.data,err.response.status))
+            dispatch({
+                type: REGISTER_FAIL
+            })
+        })
+}
 
 
 // Lgout User
 export const logout = () => (dispatch, getState) => {
-
+                        // body를 안받아도 되니까 null ㄱㄱ
     axios.post('/auth/logout',null,tokenConfig(getState))
         .then(res => {
             dispatch({

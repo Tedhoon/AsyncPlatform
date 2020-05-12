@@ -110,3 +110,16 @@
     - [회고]
         - redux구조를 잡는게 방식이 너무 다양해서... 하나만 잡고 일단 익숙해져야 할 것 같다.
         - 오히려 너무 component화를 많이 시키거나 요청별 구조를 나눠놓으니까 내가 헷갈리는데, 이건 권장방식을 알아보고 폴더구조도 다시 잡아야할 것 같다.
+
+- 2020.5.12
+    - [react]
+        - login frontend authentication
+        - logout frontend authentication
+        - register frontend authentication
+        - global nav에 user관련 converting 적용
+        - redux, connect등 적용하여 전체적인 리덕스기반 코드 리팩토링
+    - [회고]
+        - react, redux, axios를 이용한 회원관련 작업을 모두 끝냈다 👏👏👏
+        - connect관련 PropTypes와 mapStateToProps에 대한 이해가 더 필요할 것 같다..!
+        - 모두 `hook`을 사용하여 구현하였는데 어찌어찌 주먹구구식으로 구현은 되었지만 추후 리팩토링도 필요할 것 같다!
+        - 함수형 컴포넌트에서 redux state를 가져오는 부분도 확실하게 학습해야겠다아-!

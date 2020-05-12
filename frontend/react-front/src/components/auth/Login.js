@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // import api from 'components/root/api';
 import { login } from 'actions/authActions';
+// import { Redirect } from 'react-router-dom';
 
 // 여기서 login을 인자로 받아와야 connect 가능한듯
 const Login = ({isAuthenticated,login}) => {
@@ -12,7 +13,8 @@ const Login = ({isAuthenticated,login}) => {
     useEffect(() => {
         if(isAuthenticated){
             console.log("로그인성공!")
-            history.push('/');
+            // history.push('/');
+            // return <Redirect to="/" />;
         }else{
             console.log("로그인실패!")
         }

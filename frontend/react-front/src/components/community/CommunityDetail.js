@@ -10,19 +10,27 @@ const CommunityDetail = () => {
     const [ object, setObject ] = useState('');
 
     const _getCommunityDetail = async() => {
-        const comObject = await api.getDetailCommnunity(slug.id)
-            .then(function(response){
-                console.log(response)
-                setObject(comObject.data);
+        await api.getDetailCommnunity(slug.id)
+            .then(res=>{
+                console.log(res)
+                setObject(res.data);
             })
-            .catch(function(error) {
-                if (error.response.status===401){
-                    alert("인증되지 않은 유저입니다");
-                    history.push('/community');
+            .catch(err=>{
+                if(err.response.status===401){
+                    alert("인증되지 않은 유저")
+                }else{
+                    alert("queryset없음 404")
                 }
-                else {alert("존재하지 않는 쿼리셋 404입니다")}
-                console.log(error.response);  
+                console.log(err)
             })
+            // .catch(function(error) {
+            //     if (error.response.status===401){
+            //         alert("인증되지 않은 유저입니다");
+            //         history.push('/community');
+            //     }
+            //     else {alert("존재하지 않는 쿼리셋 404입니다")}
+            //     console.log(error.response);  
+            // })
     }
 
     const _deleteCommnunity = async() => {
@@ -33,7 +41,7 @@ const CommunityDetail = () => {
 
     useEffect(function(){
         _getCommunityDetail()
-    },[]);
+    },[object]);
 
     return (
         <div>

@@ -13,7 +13,7 @@ const Login = ({isAuthenticated,login}) => {
     useEffect(() => {
         if(isAuthenticated){
             console.log("로그인성공!")
-            // history.push('/');
+            history.push('/');
             // return <Redirect to="/" />;
         }else{
             console.log("로그인실패!")

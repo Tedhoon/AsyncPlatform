@@ -4,7 +4,7 @@ import {
     // AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-    // LOGOUT_SUCCESS,
+    LOGOUT_SUCCESS,
     // REGISTER_SUCCESS,
     // REGISTER_FAIL,
 } from './types';
@@ -49,7 +49,7 @@ export const login = (username,password) => dispatch => {
 
 
     // Request Body
-    const body = JSON.stringify({username,password})
+    const body = JSON.stringify({username, password})
 
     axios.post('/auth/login',body,config)
         .then(res => {
@@ -97,19 +97,18 @@ export const login = (username,password) => dispatch => {
 
 
 // Lgout User
-// export const logout = () => (dispatch,getState) => {
+export const logout = () => (dispatch, getState) => {
 
-
-//     axios.post('/api/auth/logout',null,tokenConfig(getState))
-//         .then(res => {
-//             dispatch({
-//                 type: LOGOUT_SUCCESS,
-//             })
-//         })
-//         .catch(err => {
-//            dispatch(returnErrors(err.response.data,err.response.status))
-//         })
-// }
+    axios.post('/auth/logout',null,tokenConfig(getState))
+        .then(res => {
+            dispatch({
+                type: LOGOUT_SUCCESS,
+            })
+        })
+        // .catch(err => {
+        //    dispatch(returnErrors(err.response.data,err.response.status))
+        // })
+}
 
 
 // User Dashboard

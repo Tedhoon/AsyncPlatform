@@ -123,3 +123,13 @@
         - connect관련 PropTypes와 mapStateToProps에 대한 이해가 더 필요할 것 같다..!
         - 모두 `hook`을 사용하여 구현하였는데 어찌어찌 주먹구구식으로 구현은 되었지만 추후 리팩토링도 필요할 것 같다!
         - 함수형 컴포넌트에서 redux state를 가져오는 부분도 확실하게 학습해야겠다아-!
+
+- 2020.5.13
+    - [react]
+        - commnunity관련 post작업과 detail 조회 과정을 react에서 header에 token을 첨부해 drf와 통신함
+        - 위 과정을 모두 redux로 컨버팅
+    - [drf]
+        - 간단한 token authentication 적용
+    - [회고]
+        - rootReducer에 community state를 추가안해서 reducer가 계속 작동을 안하는 바람에 2시간이고 머리를 싸멨다.... 젠장
+        - connect와 redux로 생성된 전역 state들 활용, 또 propType활용까지 이제는 숙련된 것 같다! 

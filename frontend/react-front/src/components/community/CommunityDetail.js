@@ -1,56 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom'
 import api from 'components/root/api';
+import { detailCommunity } from 'actions/comActions';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const CommunityDetail = () => {
+
+const CommunityDetail = ({community, detailCommunity}) => {
     // useParams를 써서 params가 담긴 object를 반환 받을 수 있다.
-    let slug = useParams();
+    const slug = useParams();
     const history = useHistory();
-
-    const [ object, setObject ] = useState('');
-
-    const _getCommunityDetail = async() => {
-        await api.getDetailCommnunity(slug.id)
-            .then(res=>{
-                console.log(res)
-                setObject(res.data);
-            })
-            .catch(err=>{
-                if(err.response.status===401){
-                    alert("인증되지 않은 유저")
-                }else{
-                    alert("queryset없음 404")
-                }
-                console.log(err)
-            })
-            // .catch(function(error) {
-            //     if (error.response.status===401){
-            //         alert("인증되지 않은 유저입니다");
-            //         history.push('/community');
-            //     }
-            //     else {alert("존재하지 않는 쿼리셋 404입니다")}
-            //     console.log(error.response);  
-            // })
-    }
+    useEffect(()=>{
+        detailCommunity(slug.id)
+    },[])
 
     const _deleteCommnunity = async() => {
         await api.deleteCommunity(slug.id)
         history.push('/community');
     }
 
-
-    useEffect(function(){
-        _getCommunityDetail()
-    },[object]);
-
     return (
         <div>
             {
-                object ? 
+                community.community.id ? 
                     <div>
-                        <p>{object.id}번 째 글입니다.</p>
-                        <p>제목 : {object.title}</p>
-                        <p>내용 : {object.title}</p>
+                        <p>{community.community.id}번 째 글입니다.</p>
+                        <p>제목 : {community.community.title}</p>
+                        <p>내용 : {community.community.title}</p>
                     </div>
 
                 : <p>"loading..."</p>
@@ -62,4 +38,14 @@ const CommunityDetail = () => {
     )
 }
 
-export default CommunityDetail;
+
+CommunityDetail.propTypes = {
+    community: PropTypes.object.isRequired,
+    detailCommunity: PropTypes.func.isRequired 
+}
+
+const mapStateToProps = state => ({
+    community: state.community
+})
+
+export default connect(mapStateToProps, {detailCommunity})(CommunityDetail);

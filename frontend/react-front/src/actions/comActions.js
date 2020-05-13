@@ -23,3 +23,16 @@ export const addCommnunity = (community) => (dispatch,getState) => {
     })
     // .catch(err => dispatch(returnErrors(err.response.data,err.response.status)));
 }
+
+export const detailCommunity = (com_id) => (dispatch, getState) => {
+    axios.get('/community/'+com_id, tokenConfig(getState))
+        .then(res=>{
+            dispatch({
+                type: DETAIL_COMMUNITY,
+                payload: res.data
+            })
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+}

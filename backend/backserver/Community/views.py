@@ -10,7 +10,7 @@ from django.http import Http404
 from django.contrib.auth.models import User
 
 class CommunityList(APIView):
-    permission_classes = [ permissions.IsAuthenticated, ]
+    # permission_classes = [ permissions.IsAuthenticated, ]
 
     def get(self, request, format=None):
         queryset = Community.objects.all()

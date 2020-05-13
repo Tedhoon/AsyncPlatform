@@ -48,6 +48,9 @@ function Community() {
     )
 }
 
+// const mapStateToProps({
+
+// })
 export default Community;
 // export default connect()(Community);
 // subscribe를 위해 connect를 써주는게 맞는 것 같다

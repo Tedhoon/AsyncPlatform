@@ -144,6 +144,7 @@ export const tokenConfig = getState => {
     // 토큰 있으면 header에 넣어준다.
     if(token){
         config.headers['Authorization'] = `Token ${token}`;
+        console.log('token 헤더에 장착')
     }
 
     return config;

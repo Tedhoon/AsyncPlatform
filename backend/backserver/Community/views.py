@@ -10,14 +10,20 @@ from django.http import Http404
 from django.contrib.auth.models import User
 
 class CommunityList(APIView):
+    permission_classes = [ permissions.IsAuthenticated, ]
+
     def get(self, request, format=None):
         queryset = Community.objects.all()
         serializer = CommunitySerializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request, format=None):
-        serializer = CommunitySerializer(data=request.data)
-        print(request.user)
+        
+        serializer = CommunitySerializer(data=self.request.data)
+        print(self.request.data)
+        print(request.data)
+        print(f"{self.request.user} 이거!!")
+    
         if serializer.is_valid():
             serializer.save(author=User.objects.get(id=5))
                             # author = request.user해주면 될 듯!

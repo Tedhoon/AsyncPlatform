@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import api from 'components/root/api';
+// import api from 'components/root/api';
+import { addCommnunity } from 'actions/comActions';
 
-const CommunityPost = () => {
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+
+const CommunityPost = ({addCommnunity}) => {
     const history = useHistory(); 
     const [ title, setTitle ] = useState('');
     const [ desc, setDesc ] = useState('');
@@ -19,14 +24,16 @@ const CommunityPost = () => {
 
     const onSubmit = async (event) => {
         event.preventDefault();
-        await api.postCommunity({'title':title, 'desc':desc})
-            .then(function(response){
-                console.log(response)
-            })
-            .catch(function(error) {
-                console.log(error);
-                alert(error);
-            })
+
+        // await api.postCommunity({'title':title, 'desc':desc})
+        //     .then(function(response){
+        //         console.log(response)
+        //     })
+        //     .catch(function(error) {
+        //         console.log(error);
+        //         alert(error);
+        //     })
+        addCommnunity({'title':title,'desc':desc})
         history.push('/community');
         
         }
@@ -45,4 +52,11 @@ const CommunityPost = () => {
     )
 }
 
-export default CommunityPost;
+CommunityPost.propTypes = {
+    addCommnunity: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+
+})
+export default connect(mapStateToProps, {addCommnunity})(CommunityPost);

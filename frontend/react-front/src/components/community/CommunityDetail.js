@@ -20,6 +20,21 @@ const CommunityDetail = ({community, detailCommunity, deleteCommunity}) => {
         deleteCommunity(slug.id, history);
     }
 
+    const putCommunity = async() => {
+
+    }
+
+    const patchCom = () => {
+        console.log('패치!')
+        putCommunity()
+    }
+    
+    const putCom = () => {
+        console.log('풋!')
+        
+
+    }
+
     return (
         <div>
             {
@@ -33,6 +48,8 @@ const CommunityDetail = ({community, detailCommunity, deleteCommunity}) => {
                 : <p>"loading..."</p>
             }
             <button onClick={deleteCom}>삭제</button>
+            <button okClick={patchCom}>패치(부분수정)</button>
+            <button onClick={putCom}>풋(전체수정)</button>
             
         </div>
 

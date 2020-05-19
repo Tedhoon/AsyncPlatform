@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 // import api from 'components/root/api';
 import { addCommunity } from 'actions/comActions';
@@ -11,7 +11,9 @@ const CommunityPost = ({addCommunity}) => {
     const history = useHistory(); 
     const [ title, setTitle ] = useState('');
     const [ desc, setDesc ] = useState('');
-
+    useEffect(()=>{
+        // console.log(userId)
+    },[])
     const onChange = async (e) => {
         if (e.target.name === "title"){
             setTitle(e.target.value);
@@ -57,6 +59,7 @@ CommunityPost.propTypes = {
 }
 
 const mapStateToProps = state => ({
+    // userId: state.auth.user.id
 
 })
 export default connect(mapStateToProps, {addCommunity})(CommunityPost);

@@ -9,13 +9,18 @@ import { tokenConfig } from 'actions/authActions';
 
 
 export const addCommunity = (community) => (dispatch,getState) => {
+    // console.log(`${user_id} << user_id`)
+    // const userId = getState().auth.user.id;
+    // 아,, Token Permission을 준다음에 django backend에서 self.request.user로 받아오는 거였음ㅁ!!!!! 
 
-    axios.post('/community/', community, tokenConfig(getState),{
+    axios.post('/community/create', community, tokenConfig(getState),{
         headers: {
             'Content-Type': 'application/json'
         }
     })
     .then(res => {
+        console.log(res)
+        console.log(res.data)
         dispatch({
             type: ADD_COMMUNITY,
             payload : res.data

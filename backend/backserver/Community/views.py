@@ -4,6 +4,7 @@ from .serializers import CommunitySerializer
 from django.shortcuts import render
 
 from rest_framework.views import APIView
+from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 from rest_framework import status, permissions
 from django.http import Http404
@@ -17,15 +18,18 @@ class CommunityList(APIView):
         serializer = CommunitySerializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+
+class CommunityCreate(CreateAPIView):
+    permission_classes = [ permissions.IsAuthenticated, ]
     def post(self, request, format=None):
         
         serializer = CommunitySerializer(data=self.request.data)
-        print(self.request.data)
-        print(request.data)
-        print(f"{self.request.user} 이거!!")
+        # print(self.request.META)
+        # print(request.data)
+        # print(f"{self.request.user} 이거!!")
     
         if serializer.is_valid():
-            serializer.save(author=User.objects.get(id=5))
+            serializer.save(author=self.request.user)
                             # author = request.user해주면 될 듯!
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -41,6 +45,8 @@ class CommunityDetail(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
     
     def get(self, request, pk, format=None):
+        print(self.request.user)
+        print("******************88")
         community = self.get_object(pk)
         serializer = CommunitySerializer(community)
         return Response(serializer.data)

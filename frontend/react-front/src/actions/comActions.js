@@ -6,12 +6,10 @@ import {
 } from './types';
 
 import { tokenConfig } from 'actions/authActions';
-import { useHistory } from 'react-router-dom';
 
 
 export const addCommunity = (community) => (dispatch,getState) => {
-    // console.log(community);
-    // console.log("&&&&")
+
     axios.post('/community/', community, tokenConfig(getState),{
         headers: {
             'Content-Type': 'application/json'
@@ -46,20 +44,19 @@ export const detailCommunity = (com_id) => (dispatch, getState) => {
 
 export const deleteCommunity = (com_id, history) => async (dispatch, getState) => {
     console.log("딜리트실행,,,,")
-    console.log(history)
+    // 끝나고 비동기 라우팅 위해 async
     await axios.delete('/community/'+com_id, tokenConfig(getState))
         .then(res=>{
             dispatch({
                 type: DELETE_COMMUNITY
             })
-
-            // window.location = '/community';
+            // 그냥 redux에 dispatch만!
         })
         .catch(err=>{
             alert(err)
             console.log(err)
             console.log("에러났다")
         })
-        
+
     history.push('/community')
 }

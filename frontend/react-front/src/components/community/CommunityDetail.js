@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom'
-import api from 'components/root/api';
+// import api from 'components/root/api';
 import { detailCommunity, deleteCommunity } from 'actions/comActions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { tokenConfig } from 'actions/authActions';
 
 const CommunityDetail = ({community, detailCommunity, deleteCommunity}) => {
     // useParams를 써서 params가 담긴 object를 반환 받을 수 있다.
@@ -16,9 +15,9 @@ const CommunityDetail = ({community, detailCommunity, deleteCommunity}) => {
         console.log(deleteCommunity)
     },[])
 
-    const deleteCom = async() => {
+    const deleteCom = () => {
         console.log("이거?")
-        await deleteCommunity(slug.id, history);
+        deleteCommunity(slug.id, history);
     }
 
     return (

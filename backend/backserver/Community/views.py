@@ -38,7 +38,7 @@ class CommunityDetail(APIView):
         try:
             return Community.objects.get(pk=pk)
         except Community.DoesNotExist:
-            return Response(status=status.HTTP_404_)
+            return Response(status=status.HTTP_404_NOT_FOUND)
     
     def get(self, request, pk, format=None):
         community = self.get_object(pk)

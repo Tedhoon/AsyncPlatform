@@ -10,6 +10,7 @@ import { login } from 'actions/authActions';
 // 여기서 login을 인자로 받아와야 connect 가능한듯
 const Login = ({isAuthenticated,login}) => {
     const history = useHistory();
+    
     useEffect(() => {
         if(isAuthenticated){
             console.log("로그인성공!")

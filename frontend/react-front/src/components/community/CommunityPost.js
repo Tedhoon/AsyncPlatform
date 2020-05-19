@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 // import api from 'components/root/api';
-import { addCommnunity } from 'actions/comActions';
+import { addCommunity } from 'actions/comActions';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 
-const CommunityPost = ({addCommnunity}) => {
+const CommunityPost = ({addCommunity}) => {
     const history = useHistory(); 
     const [ title, setTitle ] = useState('');
     const [ desc, setDesc ] = useState('');
@@ -33,7 +33,7 @@ const CommunityPost = ({addCommnunity}) => {
         //         console.log(error);
         //         alert(error);
         //     })
-        addCommnunity({'title':title,'desc':desc})
+        addCommunity({'title':title,'desc':desc})
         history.push('/community');
         
         }
@@ -53,10 +53,10 @@ const CommunityPost = ({addCommnunity}) => {
 }
 
 CommunityPost.propTypes = {
-    addCommnunity: PropTypes.func.isRequired
+    addCommunity: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
 
 })
-export default connect(mapStateToProps, {addCommnunity})(CommunityPost);
+export default connect(mapStateToProps, {addCommunity})(CommunityPost);

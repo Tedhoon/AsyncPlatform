@@ -133,3 +133,14 @@
     - [회고]
         - rootReducer에 community state를 추가안해서 reducer가 계속 작동을 안하는 바람에 2시간이고 머리를 싸멨다.... 젠장
         - connect와 redux로 생성된 전역 state들 활용, 또 propType활용까지 이제는 숙련된 것 같다! 
+
+- 2020.5.19
+    - [react]
+        - delete 요청 token permission 추가
+        - 해당요청 redux 컨버팅
+        - action에서 라우팅 조정해보기
+    - [drf]
+        - 전체글 read와 create요청 퍼미션때문에 분할
+        - 작성자명 token authentication 이용하여 조정
+    - [회고]
+        - author_name때문에 뻘짓,, token permission이용하면 굉장히 간단! 기억하자아

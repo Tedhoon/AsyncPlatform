@@ -60,7 +60,11 @@ class CommunityDetail(APIView):
     #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk, format=None):
-        # author권한 줘야한다요
         community = self.get_object(pk)
-        community.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        if self.request.user == community.author:
+            community.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        else:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+            
+       

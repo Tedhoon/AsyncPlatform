@@ -2,10 +2,12 @@ import axios from 'axios';
 import {
     ADD_COMMUNITY,
     DETAIL_COMMUNITY,
-    DELETE_COMMUNITY
+    DELETE_COMMUNITY,
+    PUT_COMMUNITY
 } from './types';
 
 import { tokenConfig } from 'actions/authActions';
+import { bindActionCreators } from 'redux';
 
 
 export const addCommunity = (community) => (dispatch,getState) => {
@@ -63,5 +65,20 @@ export const deleteCommunity = (com_id, history) => async (dispatch, getState) =
             console.log("에러났다")
         })
 
+    history.push('/community')
+}
+
+export const putCommunity = (community, com_id, history) => async (dispatch, getState) => {
+    console.log("put action 실행");
+    await axios.put('/community/'+com_id, community, tokenConfig(getState))
+        .then(res=>{
+            dispatch({
+                type: PUT_COMMUNITY,
+                payload: res.data
+            })
+        })
+        .catch(err=>{
+            alert(err)
+        })
     history.push('/community')
 }

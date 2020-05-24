@@ -7,6 +7,7 @@ import Register from 'components/auth/Register';
 import CommunityPost from 'components/community/CommunityPost';
 import CommunityDetail from 'components/community/CommunityDetail';
 import PrivateRoute from './PrivateRoute';
+import CommunityUpdate from 'components/community/CommunityUpdate';
 
 
 // 라우팅할 컴포넌트 다 써주면 될듯!
@@ -18,7 +19,8 @@ export default () => (
             <Route path = "/community" component = {Community} />
             <Route path = "/accounts" component={Auth} />
             <Route path = "/register" component={Register} />
-            <PrivateRoute path = "/community_post" component={CommunityPost} />
+            <PrivateRoute exact path = "/community_post" component={CommunityPost} />
+            <PrivateRoute path = "/community_post/:id" component={CommunityUpdate} />
             <PrivateRoute path = "/community_detail/:id" component={CommunityDetail} />
         </Switch>      
     </Fragment>

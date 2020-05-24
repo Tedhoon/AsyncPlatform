@@ -12,7 +12,7 @@ const CommunityDetail = ({community, detailCommunity, deleteCommunity}) => {
 
     useEffect(()=>{
         detailCommunity(slug.id)
-        console.log(deleteCommunity)
+        console.log(detailCommunity)
     },[])
 
     const deleteCom = () => {
@@ -20,19 +20,13 @@ const CommunityDetail = ({community, detailCommunity, deleteCommunity}) => {
         deleteCommunity(slug.id, history);
     }
 
-    const putCommunity = async() => {
-
-    }
-
     const patchCom = () => {
         console.log('패치!')
-        putCommunity()
+        
     }
     
     const putCom = () => {
-        console.log('풋!')
-        
-
+        history.push('/community_post/'+slug.id)
     }
 
     return (
@@ -60,7 +54,8 @@ const CommunityDetail = ({community, detailCommunity, deleteCommunity}) => {
 CommunityDetail.propTypes = {
     community: PropTypes.object.isRequired,
     detailCommunity: PropTypes.func.isRequired,
-    deleteCommunity : PropTypes.func.isRequired
+    deleteCommunity : PropTypes.func.isRequired,
+    // putCommunity : PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({

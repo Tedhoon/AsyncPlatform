@@ -22,11 +22,7 @@ class CommunityList(APIView):
 class CommunityCreate(CreateAPIView):
     permission_classes = [ permissions.IsAuthenticated, ]
     def post(self, request, format=None):
-        
         serializer = CommunitySerializer(data=self.request.data)
-        # print(self.request.META)
-        # print(request.data)
-        # print(f"{self.request.user} 이거!!")
     
         if serializer.is_valid():
             serializer.save(author=self.request.user)
@@ -34,6 +30,7 @@ class CommunityCreate(CreateAPIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# class CommunityUpdate()
 
 
 class CommunityDetail(APIView):
@@ -51,13 +48,15 @@ class CommunityDetail(APIView):
         serializer = CommunitySerializer(community)
         return Response(serializer.data)
 
-    # def put(self, request, pk, format=None):
-    #     community = self.get_object(pk)
-    #     serializer = CommunitySerializer(serializer, data=request.data)
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return Response(serializer.data)
-    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def put(self, request, pk, format=None):
+        print(self.request.user)
+        print("풋!")
+        community = self.get_object(pk)
+        serializer = CommunitySerializer(community, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk, format=None):
         community = self.get_object(pk)

@@ -1,6 +1,7 @@
 import {
     DETAIL_COMMUNITY,
-    DELETE_COMMUNITY
+    DELETE_COMMUNITY,
+    PUT_COMMUNITY
 } from 'actions/types';
 
 const initialState = {
@@ -22,10 +23,12 @@ export default function(state = initialState, action) {
             return{
                 ...state
             } 
-            // <Redirect to="/" />
-            // return {
-            //     return 
-            // }
+        case PUT_COMMUNITY:
+            console.log('put-reducer 실행')
+            return{
+                ...state,
+                community: action.payload,
+            }
         default:
             return state
     }

@@ -24,7 +24,7 @@ class CommunityList(ListAPIView):
     #     pagination_class = ComPagination()
     #     serializer = CommunitySerializer(queryset, many=True)
     #     return Response(serializer.data, status=status.HTTP_200_OK)
-    queryset = Community.objects.all()
+    queryset = Community.objects.all().order_by('-id')
     pagination_class = ComPagination
     serializer_class = CommunitySerializer
 

@@ -8,21 +8,24 @@ function CommunityList(props){
         
     const {id, author_name, title, desc} = props;
     return (
+        <React.Fragment>
         <CommunityCard>
             <p>id : {id}</p>
             <p>author: {author_name}</p>
             <p>title : {title}</p>
             <p>desc : {desc}</p>
         </CommunityCard>
+        </React.Fragment>
     )
 }
 
 const CommunityCard = styled.div`
-    border: 1px solid blue;
+    display: inline-block;
+    border: 1px solid orange;
     width: 300px;
-    float: left;
     margin: 10px;
     padding: 10px;
+    color: black;
 `;
 
 export default CommunityList;

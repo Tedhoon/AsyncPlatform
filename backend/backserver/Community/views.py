@@ -52,11 +52,16 @@ class CommunityDetail(APIView):
         print(self.request.user)
         print("풋!")
         community = self.get_object(pk)
-        serializer = CommunitySerializer(community, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        if self.request.user == community.author:
+            serializer = CommunitySerializer(community, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            else:
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+
 
     def delete(self, request, pk, format=None):
         community = self.get_object(pk)

@@ -80,5 +80,5 @@ export const putCommunity = (community, com_id, history) => async (dispatch, get
         .catch(err=>{
             alert(err)
         })
-    history.push('/community')
+    history.push('/community_detail/'+com_id)
 }

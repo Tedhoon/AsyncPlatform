@@ -11,8 +11,10 @@ import CommunityList from './CommunityList';
 
 
 function Community() {
-    const [queryset, setQueryset] = useState([]);
-    
+    let [queryset, setQueryset] = useState([]);
+    let [next, setNext] = useState('');
+    let [prev, setPrev] = useState('');
+
     useEffect(function(){
         console.log("커뮤니티 마운트!")
         // 여기서 user구독을 해볼까
@@ -24,7 +26,30 @@ function Community() {
     const _getCommunity = async() => {
         const community = await api.getCommunity();
         // console.log(community))
-        setQueryset(community.data)
+        setQueryset(community.data.results)
+        setNext(community.data.next)
+        // array는 result안에 들어있네!
+        console.log(community.data)
+    }
+    const nextPage = async() =>{
+        console.log(next)
+        const nextQueryset = await api.getCommunity(next)
+        // let community2 = await api.getCommunity(community.data.next);
+        
+        setQueryset(nextQueryset.data.results);
+        setNext(nextQueryset.data.next);
+        setPrev(nextQueryset.data.previous);
+    }
+
+    const prevPage = async() =>{
+        console.log('prev')
+        const prevQueryset = await api.getCommunity(prev)
+        
+        setQueryset(prevQueryset.data.results);
+        setNext(prevQueryset.data.next)
+        setPrev(prevQueryset.data.previous);
+
+
     }
       
     return (
@@ -42,6 +67,15 @@ function Community() {
                 </div>
                 )
                 : "loading..."
+            }
+            {
+                prev? <button onClick={prevPage}>prev</button> 
+                : null
+            }
+            
+            {
+                next? <button onClick={nextPage}>next</button> 
+                : null
             }
             
         </React.Fragment>

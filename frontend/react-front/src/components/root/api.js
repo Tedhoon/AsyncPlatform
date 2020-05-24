@@ -3,10 +3,14 @@ import axios from "axios";
 axios.defaults.baseURL = "http://127.0.0.1:8000/"
 
 export default {
-
     // community
-    getCommunity() {
-        return axios.get('/community/')
+    getCommunity(data) {
+        if(data){
+            return axios.get(data)
+        }
+        else{
+            return axios.get('/community/')
+        }
     },
     
     postCommunity(data) {

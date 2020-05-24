@@ -5,9 +5,7 @@ import {
     DELETE_COMMUNITY,
     PUT_COMMUNITY
 } from './types';
-
 import { tokenConfig } from 'actions/authActions';
-import { bindActionCreators } from 'redux';
 
 
 export const addCommunity = (community) => (dispatch,getState) => {

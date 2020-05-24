@@ -149,5 +149,10 @@
     - [react]
         - put요청 관련 CommunityUpdate 컴포넌트 생성
         - redux를 이용한 이전 데이터 가져오기 + put method 작성
+        - pagination 적용
     - [drf]
         - 요청 방식에 따른 permission 분리 및 적용
+        - custom pagination 적용 및 리스팅 class 변경(APIView에서 ListAPIView)  
+    - [회고]
+        - update용 컴포넌트를 분리했는데, 원래의 post 페이지에서 함께 수행하지 못했다,,,흑
+        - pagination 역시 나름대로 짜보긴 했는데 `너무 1차원적으로 짰나?`하는 생각이 계속든다.. 그래도 구현한거에 만족! 

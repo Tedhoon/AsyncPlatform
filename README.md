@@ -144,3 +144,10 @@
         - 작성자명 token authentication 이용하여 조정
     - [회고]
         - author_name때문에 뻘짓,, token permission이용하면 굉장히 간단! 기억하자아
+
+- 2020.5.24
+    - [react]
+        - put요청 관련 CommunityUpdate 컴포넌트 생성
+        - redux를 이용한 이전 데이터 가져오기 + put method 작성
+    - [drf]
+        - 요청 방식에 따른 permission 분리 및 적용

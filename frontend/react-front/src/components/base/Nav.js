@@ -1,4 +1,4 @@
-import React,{ useEffect } from 'react';
+import React,{ useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
 // import { useSelector } from 'react-redux';
@@ -10,9 +10,8 @@ const Nav = ({auth:{isAuthenticated,user}, logout}) => {
 
     useEffect(()=>{
         console.log(user);
-        console.log("이거!!")
-    },[user])
-
+        console.log(isAuthenticated)
+    },[user,isAuthenticated])
 
 
     // const isAuthenticated = useSelector(state=>state.auth.isAuthenticated);
@@ -39,7 +38,9 @@ const Nav = ({auth:{isAuthenticated,user}, logout}) => {
                     }
                 </li>
             </ul>
-            {user ? `${user.username} 님 안녕하세여` : ''}
+            {user ? 
+                `${user.username === undefined ? '아직': user.username } 님 안녕하세여` 
+            : '안뜸'}
         </React.Fragment>
     )
 }

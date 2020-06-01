@@ -6,9 +6,9 @@
 - create-react-app
 - hooks
 - axios
+- redux
 
 > backend
-- django
 - django-rest-framework
 - knox
 

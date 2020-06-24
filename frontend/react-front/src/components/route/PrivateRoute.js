@@ -7,6 +7,8 @@ import { connect } from 'react-redux';
 // 단순히 PrivateRoute로 설정해주고 이곳에서 권한을 검증한 후 원하는데로 redirection 시켜주면 된다!
 
 const PrivateRoute = ({ component: Component, auth, ...rest }) => {
+    // component는 Component라는 이름으로 정해줬을 뿐이고,
+    // ...rest로 비구조화 할당을 해주면, 앞에 component와 auth를 뺀 모두를 받아와서 rest라는 이름에 넣어준 것이다!
     return (
         <Route
         {...rest}

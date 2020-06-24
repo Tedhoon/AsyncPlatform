@@ -7,11 +7,17 @@ import { PropTypes } from 'prop-types';
 import { logout } from 'actions/authActions';
 
 const Nav = ({auth:{isAuthenticated,user}, logout}) => {
+    // 받아온 authdhk logout를 할당하는데,  auth안에 isAutheticated와 user를 가져온 것(?)
+    const [ myuser , setMyuser ] = useState(user)
 
     useEffect(()=>{
-        console.log(user);
-        console.log(isAuthenticated)
-    },[user,isAuthenticated])
+        // if(user === null) {
+        console.log(`${user} <<<<`);
+        // console.log(isAuthenticated)
+        setMyuser(user)
+        // }
+    },[myuser,user])
+
 
 
     // const isAuthenticated = useSelector(state=>state.auth.isAuthenticated);
@@ -38,9 +44,11 @@ const Nav = ({auth:{isAuthenticated,user}, logout}) => {
                     }
                 </li>
             </ul>
-            {user ? 
+            {user ? `${user.username}` : '놉'}
+            <br />
+            {/* {myuser ? 
                 `${user.username === undefined ? '아직': user.username } 님 안녕하세여` 
-            : '안뜸'}
+            : '안뜸'} */}
         </React.Fragment>
     )
 }
